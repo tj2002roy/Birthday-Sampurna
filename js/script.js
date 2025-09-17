@@ -7,7 +7,7 @@ async function checkPassword() {
     const password = passwordInput.value;
     const errorMsg = document.getElementById('passwordError');
     const signinContainer = document.querySelector('.signin-container');
-    if (password === '0805') {
+    if (password === '08050508') {
         const signinSection = document.getElementById('signin');
         const mainContent = document.getElementById('mainContent');
 
