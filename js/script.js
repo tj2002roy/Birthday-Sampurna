@@ -29,10 +29,10 @@ async function checkPassword() {
         // Clear the input
         passwordInput.value = '';
 
-        // Remove the shake animation after it finishes
-        setTimeout(() => {
+        // Remove the shake animation class after it finishes
+        signinContainer.addEventListener('animationend', () => {
             signinContainer.classList.remove('shake-form');
-        }, 820);
+        }, { once: true }); // The listener removes itself after running once
     }
 }
 
@@ -209,26 +209,25 @@ document.getElementById('surpriseBtn').addEventListener('click', async function(
 
 // Fireworks Animation
 function createFireworks() {
-    const duration = 5000;
+    const duration = 5 * 1000;
     const end = Date.now() + duration;
 
-    function firework() {
+    const interval = setInterval(function() {
+        if (Date.now() > end) {
+            return clearInterval(interval);
+        }
+
         confetti({
             startVelocity: 30,
             spread: 360,
             ticks: 60,
-            shapes: ['star'],
+            particleCount: 150,
             origin: {
                 x: Math.random(),
                 y: Math.random() - 0.2
             }
         });
-
-        if (Date.now() < end) {
-            requestAnimationFrame(firework);
-        }
-    }
-    firework();
+    }, 500); // Launch a burst every 500ms
 }
 
 // Initialize on page load
