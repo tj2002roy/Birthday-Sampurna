@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love! ❤️</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Sign In Section -->
+    <section id="signin">
+        <div class="stars-bg"></div>
+        <div class="signin-container">
+            <h1>Welcome, My Love 💕</h1>
+            <p>Enter our world...</p>
+            <!-- Countdown Timer -->
+            <div id="countdown">
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span>Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span>Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span>Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span>Seconds</span>
+                    </div>
+                </div>
+            </div>
+            <div class="password-form">
+                <input type="password" id="passwordInput" placeholder="Enter Password" autocomplete="off">
+                <button id="enterBtn">Enter ❤️</button>
+                <p id="passwordError" class="error-message hidden">Wrong password! Try again, my love ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content (Hidden until password entered) -->
+    <main id="mainContent" class="hidden">
+        <div class="main-bg"></div>
+        <!-- Birthday Header -->
+        <section id="header" class="section">
+            <h1 class="birthday-title">Happy Birthday<br><span class="name">My Baby girl</span> 🎂</h1>
+            <p class="subtitle">My love, my everything...</p>
+            <!-- Background Music Control -->
+            <button id="musicToggle" class="music-btn">🎵</button>
+            <audio id="bgMusic" loop>
+                <!-- REPLACE: Add your music file path -->
+                <source src="assets/background-music.mp3" type="audio/mp3">
+            </audio>
+        </section>
+
+        <!-- Typing Message -->
+        <section id="typing-section" class="section">
+            <div class="typing-container reveal-on-scroll">
+                <p id="typing-text"></p>
+            </div>
+        </section>
+
+        <!-- Personal Message -->
+        <section id="message" class="section">
+            <div class="message-card reveal-on-scroll">
+                <h2>My Dearest Love</h2>
+                <p class="love-letter">On this special day, I just want to remind you of the incredible light you bring into my life. Every moment with you feels like a gift, and my world is endlessly brighter because you’re in it.
+
+                   <br><br>
+                   Your laughter is the sweetest melody my heart knows, and your smile is the most beautiful sight I’ll ever see. Thank you for being unapologetically you—for your kindness, your strength, and the unconditional love you so gracefully give.
+
+                   <br><br>
+                   Today, we celebrate you—the most precious part of my life. And no matter how many words I find, none will ever be enough to capture how deeply, <i>I love you.</i> ❤️
+                     <br><br>Happy Birthday, my love. Here’s to many more birthdays together, filled with endless joy and unforgettable memories.
+                </p>
+            </div>
+        </section>
+
+        <!-- Postcard Gallery Section -->
+        <section id="gallery" class="section">
+            <h2>Our Beautiful Memories</h2>
+            <div class="postcard-gallery">
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo1.jpeg" loading="lazy" alt="A picture of us on our first-first date">
+                    <div class="postcard-caption">A picture of us on our first-first date</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo2.jpeg" loading="lazy" alt="Only Right turns with You">
+                    <div class="postcard-caption">Only Right turns with You</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo3.jpeg" loading="lazy" alt="A silly picture of us">
+                    <div class="postcard-caption">A silly picture of us</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo4.jpeg" loading="lazy" alt="Drunk US (Green Apple)">
+                    <div class="postcard-caption">Drunk US (Green Apple)</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo5.jpeg" loading="lazy" alt="model us">
+                    <div class="postcard-caption">model us</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo6.jpeg" loading="lazy" alt="no more LDR">
+                    <div class="postcard-caption">no more LDR</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo7.jpeg" loading="lazy" alt="Our First holi">
+                    <div class="postcard-caption">Our First holi</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo8.jpeg" loading="lazy" alt="The Eyes says it all">
+                    <div class="postcard-caption">The Eyes says it all</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo9.jpeg" loading="lazy" alt="The thumbnail material">
+                    <div class="postcard-caption">The thumbnail material</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo10.jpeg" loading="lazy" alt="Very emotional one">
+                    <div class="postcard-caption">Very emotional one</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo11.jpeg" loading="lazy" alt="Tripping us">
+                    <div class="postcard-caption">Tripping us</div>
+                </div>
+                <div class="postcard-item reveal-on-scroll">
+                    <img src="assets/photo12.jpeg" loading="lazy" alt="My baby">
+                    <div class="postcard-caption">My baby</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Notes -->
+        <section id="love-notes" class="section">
+            <h2>Things You Should Know Babygirl</h2>
+            <div class="notes-container">
+                <!-- Example Note 1 -->
+                <div class="love-note reveal-on-scroll">
+                    <div class="note-content">You're my first!
+                        <br><br>
+                         and i don't mean my first kiss, or my first relationship, or my first i love you.
+                         <br><br>
+                          you're the first person who makes me feel like i'm enough and the first one to show me 
+                          <br><br>
+                          what <i>i love you actually means.</i></div>
+                </div>
+                <!--
+                <div class="love-note reveal-on-scroll">
+                    <div class="note-content">The way you understand me without words</div>
+                </div>
+                <div class="love-note reveal-on-scroll">
+                    <div class="note-content">Your kindness touches everyone around you</div>
+                </div>
+                <div class="love-note reveal-on-scroll">
+                    <div class="note-content">How we can talk for hours about anything</div>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <!-- Surprise Button -->
+        <section id="surprise" class="section">
+            <button id="surpriseBtn" class="surprise-button">Click Me ❤️</button>
+            <div id="finalMessage" class="hidden">
+                <h2>This is just the beginning</h2>
+                <p>I'll celebrate every birthday with you ❤️</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
