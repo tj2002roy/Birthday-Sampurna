@@ -11,6 +11,15 @@ async function checkPassword() {
         const signinSection = document.getElementById('signin');
         const mainContent = document.getElementById('mainContent');
 
+        // Attempt to play music immediately after the click to satisfy browser autoplay policies
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.3; // Set initial volume
+        bgMusic.play().catch(error => {
+            // This fallback prevents a console error if autoplay is blocked.
+            // The user can still use the manual toggle button.
+            console.log("Autoplay was prevented by the browser:", error);
+        });
+
         signinSection.style.opacity = '0';
         await wait(500); // Wait for fade out transition
 
@@ -40,11 +49,6 @@ async function checkPassword() {
 function startBirthdayCelebration() {
     // Start confetti
     startConfetti();
-    
-    // Play background music
-    const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 0.3; // Set initial volume to 30%
-    bgMusic.play();
     
     // Animate elements
     animateElements();
@@ -140,18 +144,6 @@ function startConfetti() {
     frame();
 }
 
-// Music Toggle
-document.getElementById('musicToggle').addEventListener('click', function() {
-    const bgMusic = document.getElementById('bgMusic');
-    if (bgMusic.paused) {
-        bgMusic.play();
-        this.textContent = '🎵';
-    } else {
-        bgMusic.pause();
-        this.textContent = '🔇';
-    }
-});
-
 // Animate Elements on Scroll
 function animateElements() {
     const elements = document.querySelectorAll('.reveal-on-scroll');
@@ -181,32 +173,6 @@ function animateElements() {
     });
 }
 
-// Love Notes Animation
-document.querySelectorAll('.love-note').forEach(note => {
-    note.addEventListener('click', function() {
-        this.classList.add('clicked');
-        setTimeout(() => {
-            this.classList.remove('clicked');
-        }, 500);
-    });
-});
-
-// Surprise Button
-document.getElementById('surpriseBtn').addEventListener('click', async function() {
-    // Trigger fireworks
-    createFireworks();
-    
-    // Show final message
-    const finalMessage = document.getElementById('finalMessage');
-    finalMessage.classList.remove('hidden');
-
-    await wait(100); // Wait for display property to apply before transition
-    finalMessage.classList.add('visible');
-    
-    // Hide the button
-    this.style.display = 'none';
-});
-
 // Fireworks Animation
 function createFireworks() {
     const duration = 5 * 1000;
@@ -234,6 +200,44 @@ function createFireworks() {
 document.addEventListener('DOMContentLoaded', function() {
     // Start the countdown timer on the landing page
     startCountdown();
+
+    // Music Toggle
+    document.getElementById('musicToggle').addEventListener('click', function() {
+        const bgMusic = document.getElementById('bgMusic');
+        if (bgMusic.paused) {
+            bgMusic.play();
+            this.textContent = '🎵';
+        } else {
+            bgMusic.pause();
+            this.textContent = '🔇';
+        }
+    });
+
+    // Love Notes Animation
+    document.querySelectorAll('.love-note').forEach(note => {
+        note.addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 500);
+        });
+    });
+
+    // Surprise Button
+    document.getElementById('surpriseBtn').addEventListener('click', async function() {
+        // Trigger fireworks
+        createFireworks();
+        
+        // Show final message
+        const finalMessage = document.getElementById('finalMessage');
+        finalMessage.classList.remove('hidden');
+
+        await wait(100); // Wait for display property to apply before transition
+        finalMessage.classList.add('visible');
+        
+        // Hide the button
+        this.style.display = 'none';
+    });
 
     // Enter key functionality for password
     document.getElementById('passwordInput').addEventListener('keypress', function(e) {

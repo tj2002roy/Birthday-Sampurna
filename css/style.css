@@ -232,10 +232,14 @@ main.visible {
     margin-bottom: 1rem;
 }
 
-.love-letter {
+.love-letter p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--secondary-color);
+}
+
+.love-letter p + p {
+    margin-top: 1em;
 }
 
 /* Typing Message Section */
